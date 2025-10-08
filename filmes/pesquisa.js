@@ -6,8 +6,6 @@ function escapeRegex(text) {
 export const pesqPorTitulo = async (titulo) => {
     try {
       const safeTitulo = escapeRegex(titulo);
-      console.log(safeTitulo)
-      console.log(titulo)
       return await Filme.find({ titulo: { $regex: safeTitulo, $options: "i" } }).exec();
     } catch (error) {
       console.error('Erro ao pesquisar Filme', error.message);
